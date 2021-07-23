@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {View, Text, StyleSheet, KeyboardAvoidingView, TextInput, Platform, TouchableOpacity} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+
 import WorkoutName from '../components/WorkoutTitle';
 import { color } from 'react-native-reanimated';
 
@@ -46,8 +47,8 @@ export default function homeScreen({navigation}) {
                     workouts.map((item, index) => {
                         return(
                             <>
-                            <TouchableOpacity key={index} onPress={() => navigation.navigate('specific workout')}>
-                                <WorkoutName key={index} text={item} />
+                            <TouchableOpacity key={index} onPress={() => navigation.navigate('specificworkout')}>
+                                <WorkoutName text={item} />
                             </TouchableOpacity>
 
                             {/* <TouchableOpacity style={styles.crossWrapper} onPress={()=>deleteWorkout(index)}>

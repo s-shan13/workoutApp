@@ -1,15 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Platform, StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import LoginScreeen from './app/Screens/LoginScreen';
 import signupScreen from './app/Screens/signupScreen';
 import homeScreen from './app/Screens/homeScreen';
+import specificWorkout from './app/Screens/specificWorkout'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-// try: Create a new file with a function to return a view. 
-// Import the file into homeScreen and call the function everytime + is 
-// clicked. The function should take in the title of the view as a prop
 
 const authStack = createStackNavigator();
 
@@ -20,6 +16,8 @@ export default function App() {
     <NavigationContainer>
 
       <authStack.Navigator initialRouteName="home Screen">
+
+        {/* Login screen */}
         <authStack.Screen 
           name ="Login" 
           component={LoginScreeen} 
@@ -29,6 +27,8 @@ export default function App() {
            headerTitleAlign:'center' 
           }}
         />
+
+        {/* sign in screen */}
         <authStack.Screen 
           name = "sign up" 
           component={signupScreen}
@@ -38,6 +38,8 @@ export default function App() {
            headerTitleAlign:'center'
           }}
         />
+
+        {/* Add workouts (main) screen */}
         <authStack.Screen
           name="home Screen"
           component={homeScreen}
@@ -47,6 +49,18 @@ export default function App() {
            headerTitleAlign:'center',
           }}
         />
+
+        {/* specific workout screen */}
+        <authStack.Screen
+          name='specificworkout'
+          component={specificWorkout}
+          options={{title:'Workout', 
+           headerStyle: {backgroundColor: '#282626'},
+           headerTintColor: '#E7E7E7',
+           headerTitleAlign:'center',
+          }}
+        />
+
       </authStack.Navigator>
       
     </NavigationContainer>

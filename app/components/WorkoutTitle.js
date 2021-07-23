@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
-import deleteWorkout from '../Screens/homeScreen'
+import { StyleSheet, Text, View, KeyboardAvoidingView  } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+
 
 const WorkoutName = (props) => {
 
@@ -13,20 +14,10 @@ const WorkoutName = (props) => {
                 {/* title display */}
                 <Text style={styles.titleText}>{props.text}</Text>
 
-                {/* Delete button */}
-                <TouchableOpacity style={styles.crossWrapper} onPress={()=>deleteWorkout(index)}>
-                    <View>
-                        <Text style={{color:'black'}}>X</Text>
-                    </View>
-                </TouchableOpacity>
                 
             </View>
 
         </KeyboardAvoidingView>
-        
-
-        
-        
     );
     
 
