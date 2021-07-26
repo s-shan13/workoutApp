@@ -15,7 +15,7 @@ export default function App() {
     
     <NavigationContainer>
 
-      <authStack.Navigator initialRouteName="home Screen">
+      <authStack.Navigator initialRouteName="specificworkout">
 
         {/* Login screen */}
         <authStack.Screen 

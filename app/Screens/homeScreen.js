@@ -47,8 +47,8 @@ export default function homeScreen({navigation}) {
                     workouts.map((item, index) => {
                         return(
                             <>
-                            <TouchableOpacity key={index} onPress={() => navigation.navigate('specificworkout')}>
-                                <WorkoutName text={item} />
+                            <TouchableOpacity  onPress={() => navigation.navigate('specificworkout')}>
+                                <WorkoutName key={index} text={item} />
                             </TouchableOpacity>
 
                             {/* <TouchableOpacity style={styles.crossWrapper} onPress={()=>deleteWorkout(index)}>
