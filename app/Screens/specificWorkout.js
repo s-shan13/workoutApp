@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react/cjs/react.development';
 import AddExercise from '../components/AddExercise';
 
+
 export default function specificWorkout({navigation}) {
 
     // storing the exercise name
@@ -14,16 +15,27 @@ export default function specificWorkout({navigation}) {
     const [setReps, setSetReps] = useState('')
     const [setRepsArr, setSetRepsArr] = useState([])
 
+    // Functions to add input to arrays
+    const addInput = () => {
+        setexerNameArr([...exerNameArr, exerName])
+        setExerName(null);
+        setSetRepsArr([...setRepsArr, setReps])
+        setSetReps(null);
+    }
+
+    const hello = 'hello'
+
     return (
+
         // main view
         <KeyboardAvoidingView style={styles.container}>
 
             {/* Plus button */}
-            <TouchableOpacity style={styles.plusWrapper}>
+            <TouchableOpacity style={styles.plusWrapper} onPress={()=>addInput()}>
                 <Text style={styles.plus}>+</Text>
             </TouchableOpacity>
             
-            {/* input for exerName and setReps */}
+            {/* input for exerName */}
             <KeyboardAvoidingView style={styles.NameinputWrapper} behavior={Platform.OS==='android'? 'height':'padding'}>
                 <TextInput 
                     style={styles.input} 
@@ -40,10 +52,40 @@ export default function specificWorkout({navigation}) {
                     placeholder={'Enter set and reps'}
                     value={setReps}
                     onChangeText={setSetReps}
+                    multiline
                 />
             </KeyboardAvoidingView>
 
-            <AddExercise/>
+            {/* outputting inputs */}
+            <View style={styles.Outputwrapper}>
+                {
+                    exerNameArr.map((item,index) => {
+
+                        return(
+                            setRepsArr.map((newItem, newIndex) =>{
+                                return(
+                                    <>
+                                        <View key={index, newIndex}>
+                                            <AddExercise  NameText={item} setRepsText={newItem} />
+                                        </View>
+                                    </>
+                                )
+                            })  
+                        )
+                        // setRepsArr.map((newItem, newIndex) =>{
+                        //     return(
+                        //         <>
+                        //             <View key={index, newIndex}>
+                        //                 <AddExercise  NameText={item} setRepsText={newItem} />
+                        //             </View>
+                        //         </>
+                        //     )
+                        // })     
+                    })
+                }
+
+            </View>
+            <AddExercise NameText={hello} setRepsText={hello} />
 
         </KeyboardAvoidingView>
     );
@@ -102,5 +144,9 @@ const styles = StyleSheet.create({
         color: '#E7E7E7',
         width: '100%'
     },
+
+    Outputwrapper: {
+        marginTop: 10
+    }
 })
 

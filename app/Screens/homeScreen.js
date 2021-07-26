@@ -16,14 +16,8 @@ export default function homeScreen({navigation}) {
         setTitle(null);
     }
 
-    // const deleteWorkout = (index) => {
-    //     let workoutCopy = [...workouts];
-    //     workoutCopy.splice(index, 1);
-    //     setWorkouts(workoutCopy);
-    // }
-
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container}>
 
             {/* View for the add buttons */}
             <TouchableOpacity style={styles.plusWrapper} onPress={() => addTitle()}>
@@ -63,7 +57,7 @@ export default function homeScreen({navigation}) {
             </View>
 
 
-        </View>
+        </KeyboardAvoidingView>
     );
 }
 
