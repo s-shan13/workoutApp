@@ -44,12 +44,6 @@ export default function homeScreen({navigation}) {
                             <TouchableOpacity  onPress={() => navigation.navigate('specificworkout')}>
                                 <WorkoutName key={index} text={item} />
                             </TouchableOpacity>
-
-                            {/* <TouchableOpacity style={styles.crossWrapper} onPress={()=>deleteWorkout(index)}>
-                                <View>
-                                    <Text style={{color:'black'}}>X</Text>
-                                </View>
-                            </TouchableOpacity> */}
                             </>
                         )
                     })

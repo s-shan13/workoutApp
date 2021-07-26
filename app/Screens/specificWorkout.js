@@ -23,8 +23,6 @@ export default function specificWorkout({navigation}) {
         setSetReps(null);
     }
 
-    const hello = 'hello'
-
     return (
 
         // main view
@@ -65,27 +63,17 @@ export default function specificWorkout({navigation}) {
                             setRepsArr.map((newItem, newIndex) =>{
                                 return(
                                     <>
-                                        <View key={index, newIndex}>
+                                        <View key={index}>
                                             <AddExercise  NameText={item} setRepsText={newItem} />
                                         </View>
                                     </>
                                 )
                             })  
                         )
-                        // setRepsArr.map((newItem, newIndex) =>{
-                        //     return(
-                        //         <>
-                        //             <View key={index, newIndex}>
-                        //                 <AddExercise  NameText={item} setRepsText={newItem} />
-                        //             </View>
-                        //         </>
-                        //     )
-                        // })     
                     })
                 }
 
             </View>
-            <AddExercise NameText={hello} setRepsText={hello} />
 
         </KeyboardAvoidingView>
     );
