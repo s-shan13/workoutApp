@@ -5,3 +5,5 @@ A app used to create and track workouts made using JavaScript (using React Nativ
 - User authentication
 - Create a workout
 - Add exercises with specific sets and reps in a workout
+
+## End product
